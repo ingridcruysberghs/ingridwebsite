@@ -1,0 +1,65 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<style>
+    .under-construction {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    padding: 100px 0;
+    color: #333;
+}
+
+.under-construction__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.under-construction__text {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.under-construction__cta {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.under-construction__social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+</style>
+<section class="under-construction">
+    <div class="container text-center">
+        <div class="under-construction__content">
+            <h1 class="under-construction__title">We're Building Something Amazing!</h1>
+            <p class="under-construction__text">Our website is currently under construction, and we can't wait to show you what's coming. Stay tuned for an experience that's worth the wait!</p>
+            <p class="under-construction__cta">Meanwhile, follow us on our social media channels for updates:</p>
+            <div class="under-construction__social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'myApp/sidebar_widget.html' %}
+{% endblock %}

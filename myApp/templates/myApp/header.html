@@ -1,0 +1,67 @@
+{% load static %}
+<header class="main-header-three">
+    <div class="main-header-three__top">
+        <div class="main-header-three__top-wrapper">
+            <div class="main-header-three__top-inner">
+                <div class="main-header-three__top-left">
+                    <p>Welcome!... Proof Of Quality Is On The Roof.</p>
+                </div>
+                <div class="main-header-three__top-right">
+                    <ul class="list-unstyled main-header-three__contact-list">
+                        <li>
+                            <div class="text">
+                                <p><a href="mailto:Info@g-mail.com">Info@g-mail.com</a></p>
+                            </div>
+                            <div class="icon"><i class="icon-message"></i></div>
+                        </li>
+                        <li>
+                            <div class="text">
+                                <p>Mallin Street NY 105</p>
+                            </div>
+                            <div class="icon"><i class="icon-location"></i></div>
+                        </li>
+                        <li>
+                            <div class="text">
+                                <p><a href="tel:123000459">+ 123 - 000 - 459</a></p>
+                            </div>
+                            <div class="icon"><i class="icon-phone-call"></i></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-menu main-menu-three">
+        <div class="main-menu-three__wrapper">
+            <div class="main-menu-three__wrapper-inner">
+                <div class="main-menu-three__main-menu-box">
+                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                    <ul class="main-menu__list">
+                        <li><a href="{% url 'index' %}">Home <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'about' %}">About <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'readings' %}">Readings <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'booking' %}">Bookings <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'business' %}">Business <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'guidanceplan' %}">Guidance Plan <span class="main-menu-border"></span></a></li>
+                        <li><a href="{% url 'shop' %}">Shop <span class="main-menu-border"></span></a></li>
+                    </ul>
+                </div>
+                <div class="main-menu-three__logo">
+                    <a href="{% url 'index' %}"><img src="{% static 'assets/images/resources/ingrids_logo.png' %}" alt="Logo"></a>
+                </div>
+                <div class="main-menu-three__right">
+                    <div class="main-menu-three__search-side-content-login-box">
+                        <div class="main-menu-three__social-icons">
+                            <a href="https://api.whatsapp.com/send?phone=https://wa.me/34951215346" target="_blank" style="color: #25D366; font-size: 18px; margin-right: 15px;"><i class="fab fa-whatsapp"></i></a>
+                            <a href="mailto:ingrid@ingridcruysberghs.net" target="_blank" style="color: #D44638; font-size: 18px; margin-right: 15px;"><i class="fa fa-envelope"></i></a>
+                            <a href="https://www.instagram.com/ingridcruysberghs/" target="_blank" style="color: #C13584; font-size: 18px; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/ingrid.cruysberghswouters/" target="_blank" style="color: #3b5998; font-size: 18px; margin-right: 15px;"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/ingrid-cruysberghs-b982ba67/" target="_blank" style="color: #0077b5; font-size: 18px; margin-right: 15px;"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

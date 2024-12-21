@@ -1,0 +1,409 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<style>
+    .coaching-section {
+        padding: 50px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .coaching-image img {
+        border-radius: 8px;
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .coaching-content {
+        text-align: left;
+        padding: 20px;
+    }
+    
+    .coaching-content h2 {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+    
+    .coaching-content p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #555;
+    }
+    
+    .coaching-btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #ececec;
+        border: none;
+        border-radius: 30px;
+        color: #333;
+        font-size: 16px;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .coaching-btn:hover {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .coaching-services {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.coaching-services h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.coaching-services p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.coaching-services img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.coaching-plans {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.image-box img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-box h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.content-box ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content-box ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #e1c9a6;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d1b896;
+}
+
+.guidance-plan-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.guidance-content h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.guidance-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.guidance-content ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.guidance-content ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.guidance-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #e1c9a6;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d1b896;
+}
+
+.guidance-image img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.virtual-coffee-section {
+    padding: 50px 0;
+    background-color: #fdfdfd;
+    font-family: 'Georgia', serif;
+    color: #333;
+}
+
+.virtual-coffee-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.virtual-coffee-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.virtual-coffee-section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.virtual-coffee-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #555;
+}
+
+.virtual-coffee-section ul li {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #e1c9a6;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d1b896;
+}
+    </style>
+    
+<section class="coaching-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="coaching-image">
+                    <img src="{% static 'assets/images/ingrid/sittingwithlaptop.webp' %}" alt="Coaching for Next Level" class="img-fluid">
+                </div>
+            </div>
+            <!-- Text Section -->
+            <div class="col-lg-6">
+                <div class="coaching-content">
+                    <h2>Coaching for Those Ready to Step into Their Next Level</h2>
+                    <p>
+                        My 1:1 coaching sessions are crafted to empower you to transform your identity, clarify your true desires, release limiting beliefs, and co-create the life you’ve always envisioned.
+                    </p>
+                    <a href="#" class="coaching-btn">Apply for 1:1 Coaching</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="coaching-services">
+    <div class="container">
+        <!-- Service 1 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <img src="{% static 'assets/images/ingrid/guidance.png' %}" alt="Powerful Guidance Plan" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-6">
+                <h2>1:1 Powerful Guidance Plan</h2>
+                <p><strong>Powerful Guidance Plan</strong><br>
+                    Are you ready for transformative change in your life? This unique plan combines reading, healing, and coaching to align your energy and purpose. We’ll explore your energetic field, uncover your soul’s mission, and clear any blocks that may be holding you back. Through weekly or bi-weekly sessions, you’ll receive practical tools, deep healing, and intuitive insights to create lasting change and step into the life you’ve always dreamed of.
+                </p>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <img src="{% static 'assets/images/ingrid/backpack.png' %}" alt="Lightening Your Emotional Backpack" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2>1:1 Lightening Your Emotional Backpack</h2>
+                <p><strong>Lightening Your Emotional Backpack</strong><br>
+                    This coaching program focuses on helping you release the emotional burdens you’ve been carrying. By working through your “emotional backpack,” we’ll identify unresolved feelings, remove unnecessary weight, and teach you practical strategies for long-term emotional well-being. Whether it’s personal growth or finding clarity in relationships, this program helps you achieve balance and peace in your life.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="coaching-plans">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="image-box">
+                    <img src="{% static 'assets/images/ingrid/coffeesession20.webp' %}" alt="Coffee Session" class="img-fluid rounded">
+                </div>
+            </div>
+            <!-- Text Section -->
+            <div class="col-lg-6">
+                <div class="content-box">
+                    <h2>How the Coaching Plans Work</h2>
+                    <p>
+                        Both coaching plans—<strong>1:1 Guidance Plan</strong> and <strong>Lightening Your Emotional Backpack</strong>—are designed to help you release emotional, mental, and energetic blockages so you can move forward with clarity and purpose. Each plan combines <em>intuitive insights</em>, <em>healing practices</em>, and <em>practical coaching</em> to create a holistic approach to transformation.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>The Guidance Plan</strong> integrates reading, healing, and coaching to align your energy, uncover your life’s mission, and provide tools for long-term change.
+                        </li>
+                        <li>
+                            <strong>The Lightening Your Emotional Backpack Plan</strong> focuses on identifying and releasing emotional burdens while teaching you to maintain balance and emotional freedom.
+                        </li>
+                    </ul>
+                    <p>
+                        Through personalized sessions, you’ll experience deep inner work, clear emotional and energetic blocks, and receive ongoing support to create lasting positive change.
+                    </p>
+                    <a href="#" class="btn btn-primary">Yes, please</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="guidance-plan-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-lg-6">
+                <div class="guidance-content">
+                    <h2>1:1 Guidance Plan</h2>
+                    <h3>HOW IT WORKS:</h3>
+                    <ul>
+                        <li>
+                            <strong>Part 1: Reading</strong><br>
+                            During the reading sessions, we access your energetic field to uncover important information such as your life’s mission, lessons you are meant to learn, and unresolved questions. This helps you gain a deep understanding of who you are and why you’re here.
+                        </li>
+                        <li>
+                            <strong>Part 2: Healing</strong><br>
+                            In the healing sessions, we align your chakras and remove energetic blocks, allowing your energy to flow freely again. This brings you into balance, helping you overcome obstacles in life and feel more empowered. Your highest frequency will be restored, making life flow more easily.
+                        </li>
+                        <li>
+                            <strong>Part 3: Coaching</strong><br>
+                            The coaching sessions provide practical tools and insights that complement the reading and healing. We focus on shifting your mindset and beliefs to match your renewed energy. This helps you take tangible steps towards achieving your goals and living in alignment with your true self.
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Session Structure:</strong><br>
+                        The unique combination of reading, healing, and coaching ensures deep transformation and lasting change.
+                    </p>
+                    <p>
+                        Choose between <strong>5 to 10 sessions</strong> (weekly or biweekly).<br>
+                        Each session lasts <strong>60 minutes</strong> and is conducted via <em>WhatsApp, Skype, or Zoom</em>.
+                    </p>
+                    <a href="#" class="btn btn-primary">Yes, please</a>
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="guidance-image">
+                    <img src="{% static 'assets/images/ingrid/guidanceplan.webp' %}" alt="Guidance Plan" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="virtual-coffee-section">
+    <div class="container">
+        <div class="text-center">
+            <h2>Interested in Working Together?<br>Let’s Chat Over a Virtual Coffee!</h2>
+            <p>
+                If you’re curious about my coaching programs and want to see if we’re a good match, I invite you to a 
+                free 20-minute virtual coffee session. This is a no-pressure opportunity for us to connect, discuss your goals, 
+                and explore which coaching plan—<em>1:1 Guidance Plan</em> or <em>Lightening Your Emotional Backpack</em>—best suits your needs.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>What to Expect:</h3>
+                <ul>
+                    <li>A friendly, casual chat to discuss where you are in life and what you’re looking to achieve.</li>
+                    <li>An opportunity to ask any questions you might have about the coaching process.</li>
+                    <li>Clarity on how my coaching can support your journey and which plan is right for you.</li>
+                </ul>
+            </div>
+            <div class="col-lg-12">
+                <h3>How It Works:</h3>
+                <ul>
+                    <li>The session takes place over <strong>WhatsApp, Skype, Zoom, or Google Meet</strong>, whichever platform is easiest for you.</li>
+                    <li>Simply click the button below to book your free session.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-primary">Book Your Free 20-Minute Session</a>
+        </div>
+    </div>
+</section>
+{% include 'myApp/sidebar_widget.html' %}
+{% endblock %}

@@ -1,0 +1,754 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>/* General Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      margin: auto;
+      background-color: white;
+      border-radius: 12px;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.3s ease-in-out;
+      overflow: hidden;
+    }
+    
+    /* Layout for Text and Image Sections */
+    .modal-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    
+    /* Text Section Styling */
+    .modal-text {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+    }
+    
+    .modal-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .modal-text h3 {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+    
+    .modal-text p {
+      color: #555;
+      margin: 10px 0;
+    }
+    
+    .modal-text .value {
+      font-weight: bold;
+      color: #333;
+      margin: 10px 0;
+    }
+    
+    .modal-text form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .modal-text form input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .modal-text form input:focus {
+      border-color: #0055cc;
+      outline: none;
+    }
+    
+    .modal-text form button {
+      padding: 10px 15px;
+      background-color: #003366;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .modal-text form button:hover {
+      background-color: #0055cc;
+    }
+    
+    /* Image Section Styling */
+    .modal-image {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    
+    .modal-image .coach-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+    
+    .modal-image .coach-name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    
+    .modal-image .coach-title {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    /* Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    
+    .close:hover {
+      color: #000;
+    }
+    
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .modal-content {
+        max-width: 90%;
+      }
+    
+      .modal-inner {
+        flex-direction: column;
+      }
+    
+      .modal-image {
+        padding: 10px;
+      }
+    
+      .modal-text h2 {
+        font-size: 1.3rem;
+      }
+    
+      .modal-text h3 {
+        font-size: 1.1rem;
+      }
+    
+      form button {
+        font-size: 0.9rem;
+      }
+    }
+    
+    /* General Styles */
+.intro-section {
+    padding: 60px 20px;
+    background: #f9f9f9; /* Light background for contrast */
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.intro-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #5a5a5a;
+}
+
+.intro-content .intro-subheading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #a68262; /* Add a soft color for branding */
+}
+
+.intro-content .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.intro-content .intro-divider {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 20px 0;
+}
+
+.intro-content .intro-details {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Image Section */
+.intro-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .intro-section {
+        text-align: center;
+    }
+
+    .intro-content {
+        margin-bottom: 30px;
+    }
+
+    .intro-image img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* Styling for the Highlighted Text */
+.highlighted-text {
+    font-size: 3rem; /* Adjust size as needed */
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: #a68262; /* Soft gold/bronze color for elegance */
+    position: relative;
+    display: inline-block;
+    opacity: 0; /* Initially hidden for transition */
+    transform: translateY(20px); /* Start position for animation */
+    animation: fadeInSlideUp 1.5s ease-out forwards; /* Animation */
+}
+
+/* Transition Effect */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effect (Optional) */
+.highlighted-text:hover {
+    color: #d4a373; /* Slightly lighter color on hover */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: all 0.3s ease;
+}
+
+
+
+
+</style>
+<div id="welcomeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-inner">
+        <!-- Text Section -->
+        <div class="modal-text">
+          <h2>Access our signature mini workshop</h2>
+          <p>Join the GSCC email family!</p>
+          <h3>From Overwhelmed to Overjoyed</h3>
+          <p class="value">Valued at $30</p>
+          <p>Ready to make powerful progress in less than 15 minutes? Access your complimentary workshop now:</p>
+          <form id="emailSignupForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <button type="submit">Yes, please!</button>
+          </form>
+        </div>
+        <!-- Image Section -->
+        <div class="modal-image">
+          <img src="path_to_image.jpg" alt="Coach Image" class="coach-img">
+          <p class="coach-name">Ingrid Cruysberghs</p>
+          <p class="coach-title">Professional Certified Master Life Coach</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  
+  <section class="intro-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-lg-6">
+                <div class="intro-content">
+                    <h1 class="intro-title">
+                        <span class="highlighted-text">Hi, I'm Ingrid Cruysberghs</span>
+                    </h1>
+                    
+                    <h2>a.k.a. Your Transformational Guide</h2>
+                    <p class="intro-subheading">Guidance for Those Ready to Transform Their Lives</p>
+                    <p class="intro-text">
+                        I empower individuals to tap into their intuitive gifts, align with their soul’s purpose, and take transformative steps toward success. 
+                        Whether through spiritual insight, clairvoyant readings, business consultations, or personalized coaching, I’m here to help you create a life (and business) 
+                        that feels deeply aligned, fulfilling, and abundant—inside and out.
+                    </p>
+                    <hr class="intro-divider">
+                    <p class="intro-details">
+                        Ingrid is a highly sought-after transformational life coach and clairvoyant, offering deep insights and actionable strategies for personal and professional growth.
+                        She has helped countless individuals step into their highest potential and embrace a life of purpose and prosperity.
+                    </p>
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <div class="intro-image">
+                    <img src="{% static 'assets/images/ingrid/ingrid1.webp' %}" alt="Ingrid Cruysberghs" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Four Start -->
+<section class="feature-four">
+    <div class="container">
+        <div class="section-title-three text-center">
+            <h2 class="section-title__title">A SPIRITUALLY ALIGNED, FULFILLED, AND HAPPIER YOU BEGINS HERE</h2>
+            <span class="about-two__text">Guiding you to break through limitations, discover your soul’s true purpose, and tap into your intuitive wisdom. Together, we’ll empower your energy to align and create your dream life — regardless of where you start or how uncertain the journey feels.</span>
+        </div>
+        <div class="row">
+            <!-- Feature Four Single Start -->
+            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div class="feature-four__single">
+                    <div class="feature-four__icon">
+                        <i class="fas fa-gem"></i> <!-- Font Awesome crystal ball/gem icon -->
+                    </div>
+                    <div class="feature-four__content">
+                        <div class="feature-four__shape-1" style="background-image: url({% static 'assets/images/shapes/feature-four-shape-1.png' %});"></div>
+                        <h3 class="feature-four__title">
+                            <a href="#">Readings</a>
+                        </h3>
+                        <p class="feature-four__text">
+                            Gain insights and clarity with spiritual and intuitive readings.
+                        </p>
+                    </div>
+                    <div class="feature-four__img">
+                        <img src="{% static 'assets/images/ingrid/coffeelaptop.webp' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Feature Four Single End -->
+
+            <!-- Feature Four Single Start -->
+            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                <div class="feature-four__single">
+                    <div class="feature-four__icon">
+                        <i class="fas fa-hands-helping"></i> <!-- Font Awesome handshake icon -->
+                    </div>
+                    <div class="feature-four__content">
+                        <div class="feature-four__shape-1" style="background-image: url({% static 'assets/images/shapes/feature-four-shape-1.png' %});"></div>
+                        <h3 class="feature-four__title">
+                            <a href="#">Coaching</a>
+                        </h3>
+                        <p class="feature-four__text">
+                            Tailored coaching to unlock potential and achieve goals.
+                        </p>
+                    </div>
+                    <div class="feature-four__img">
+                        <img src="{% static 'assets/images/ingrid/laptop.webp' %}"  alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Feature Four Single End -->
+
+            <!-- Feature Four Single Start -->
+            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                <div class="feature-four__single">
+                    <div class="feature-four__icon">
+                        <i class="fas fa-calendar-alt"></i> <!-- Font Awesome calendar icon -->
+                    </div>
+                    <div class="feature-four__content">
+                        <div class="feature-four__shape-1" style="background-image: url({% static 'assets/images/shapes/feature-four-shape-1.png' %});"></div>
+                        <h3 class="feature-four__title">
+                            <a href="#">Bookings</a>
+                        </h3>
+                        <p class="feature-four__text">
+                            Convenient booking options for your personalized needs.
+                        </p>
+                    </div>
+                    <div class="feature-four__img">
+                        <img src="{% static 'assets/images/ingrid/writing.webp' %}"   alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Feature Four Single End -->
+        </div>
+    </div>
+</section>
+
+
+<section class="feature-four">
+    <div class="container">
+        
+    </div>
+</section>
+
+ <section class="testimonial-three" >
+    <div class="testimonial-three__bg" style="background-image: url({% static 'assets/images/ingrid/virtualcoffee.webp' %});"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="testimonial-three__left">
+                    <div class="section-title-three text-left">
+                        <span class="section-title-three__tagline">Testimonials</span>
+                        <h2 class="section-title-three__title">What Our Clients Say</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9">
+                <div class="testimonial-three__right">
+                    <div class="testimonial-three__carousel thm-owl__carousel owl-theme owl-carousel" data-owl-options='{
+                        "items": 1,
+                        "margin": 38,
+                        "smartSpeed": 700,
+                        "loop": true,
+                        "autoplay": 6000,
+                        "nav": true,
+                        "dots": false,
+                        "navText": ["<span class=\"icon-down\"></span>", "<span class=\"icon-right1\"></span>"],
+                        "responsive": {
+                            "0": { "items": 1 },
+                            "768": { "items": 2 },
+                            "992": { "items": 2 }
+                        }
+                    }'>
+                        <!-- Testimonial 1 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“I MET YOU IN MARBELLA FOR A READING BEFORE, IT WAS VERY ACCURATE YOUR PREDICTION FOR MY FUTURE WHICH AT THE TIME I WAS NOT SURE WOULD BECOME A REALITY, BUT IT DID! THANK YOU.”<br><strong>– Lisa</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“I AM VERY IMPRESSED WITH INGRID’S PROFESSIONALISM WHICH SHE DELIVERS IN A NATURAL WAY. HAVING BEEN A CLIENT FOR MANY YEARS I CAN HONESTLY GIVE MY HEARTFELT RECOMMENDATION.”<br><strong>– Louise</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“INGRID IS VERY WARM AND KIND. HER ADVICE AND GUIDANCE WAS EXTREMELY HELPFUL TO ME AND I WOULD HIGHLY RECOMMEND INGRID TO ANYONE WHO IS KEEN TO DISCOVER AND FOLLOW THEIR SOUL PURPOSE.”<br><strong>– Michelle</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Testimonial Carousel -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="about-two">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-xl-6">
+                <div class="about-two__right">
+                    <div class="section-title section-title-two text-left">
+                        <span class="section-title__tagline">Let’s Work Together</span>
+                        <h2 class="section-title__title">Are you ready for a profound transformation in your life?</h2>
+                    </div>
+                    <p class="about-two__text">To connect with your true purpose and create a life aligned with your soul’s deepest desires? To release everything that no longer serves you and step fully into the person you are meant to be?</p>
+                    <p class="about-two__text">My work is centered around guiding individuals to unlock their intuitive gifts, gain clarity, and embrace the limitless possibilities that exist for them. If you’re ready to tap into your higher self, shift your energy, and live a life of authenticity and purpose — then you’re exactly where you’re meant to be.</p>
+                    <!--                   
+                    <div class="about-two__bottom">
+                        <div class="about-two__bottom-text-box">
+                            <p>Over 12 years' experience helping individuals unlock their potential and live authentically.</p>
+                        </div>
+                        <div class="about-two__user-box">
+                            <div class="about-two__user-img">
+                                <img src="{% static 'assets/images/resources/about-two-user-img.jpg' %}" alt="">
+                            </div>
+                            <div class="about-two__user-content">
+                                <h4 class="about-two__user-name">Jasonia Tim</h4>
+                                <p class="about-two__user-sub-title">CEO, Sycho</p>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services Three Start --><section class="services-three">
+    <div class="container">
+        <div class="section-title-three text-center">
+            <span class="section-title-three__tagline">Our Services</span>
+            <h2 class="section-title-three__title">Transformational Services <br> Tailored for You</h2>
+        </div>
+        <div class="row">
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div class="services-three__single">
+                    <div class="services-three__content-box">
+                        <div class="services-three__icon">
+                            <span class="icon-conversation"></span>
+                        </div>
+                        <h3 class="services-three__title"><a href="personal-reading.html">Personal Reading</a></h3>
+                        <p class="services-three__text">Gain clarity on life’s challenges through tailored clairvoyant readings addressing your unique needs.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                <div class="services-three__single services-three__single-two">
+                    <div class="services-three__img">
+                        <img src="{% static 'assets/images/ingrid/brownpants.webp' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                <div class="services-three__single services-three__single-three">
+                    <div class="services-three__content-box">
+                        <div class="services-three__icon">
+                            <span class="icon-happy"></span>
+                        </div>
+                        <h3 class="services-three__title"><a href="business-sessions.html">Business Sessions</a></h3>
+                        <p class="services-three__text">Intuitive guidance to help you navigate key business decisions and uncover new opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                <div class="services-three__single services-three__single-four">
+                    <div class="services-three__img">
+                        <img src="{% static 'assets/images/ingrid/notebook.webp' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="500ms">
+                <div class="services-three__single services-three__single-five">
+                    <div class="services-three__img">
+                        <img src="{% static 'assets/images/ingrid/halfbodylaptop.webp' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="600ms">
+                <div class="services-three__single services-three__single-six">
+                    <div class="services-three__content-box">
+                        <div class="services-three__icon">
+                            <span class="icon-healthcare"></span>
+                        </div>
+                        <h3 class="services-three__title"><a href="life-coaching.html">Life Coaching</a></h3>
+                        <p class="services-three__text">Empowering sessions offering strategies to help you navigate life transitions with clarity and confidence.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="700ms">
+                <div class="services-three__single services-three__single-seven">
+                    <div class="services-three__img">
+                        <img src="{% static 'assets/images/ingrid/digitalresources.webp' %}"alt="">
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+
+            <!--Services Three Single Start-->
+            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="800ms">
+                <div class="services-three__single services-three__single-eight">
+                    <div class="services-three__content-box">
+                        <div class="services-three__icon">
+                            <span class="icon-mental-health-1"></span>
+                        </div>
+                        <h3 class="services-three__title"><a href="digital-resources.html">Digital Resources</a></h3>
+                        <p class="services-three__text">Explore digital workbooks designed to support personal growth and lasting transformation.</p>
+                    </div>
+                </div>
+            </div>
+            <!--Services Three Single End-->
+        </div>
+    </div>
+</section>
+
+<section class="team-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5">
+                <div class="team-details__left">
+                    <div class="team-details__info">
+                        <div class="team-details__bg-img-box">
+                             <img src="{% static 'assets/images/ingrid/sitting.webp' %}" alt="">
+                            <div class="team-details__img">
+                                <img src="{% static 'assets/images/ingrid/sitting.webp' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="team-details__content">
+                            <h4 class="team-details__name">Ingrid Cruysberghs</h4>
+                            <p class="team-details__sub-title">Clairvoyant & Intuitive Coach</p>
+                        </div>
+                        <div class="team-details__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7">
+                <div class="team-details__right">
+                    <div class="team-details__right-content">
+                        <h3 class="team-details__title">WELCOME, I’M INGRID</h3>
+                        <p class="team-details__text">My name is Ingrid Cruysberghs, and I am a Clairvoyant, Psychic Spiritual Coach, and Intuitive Business Consultant. I’m a proud mother of two wonderful children, a dog mama to my two little furry companions, Maurice and Marcel, and happily married to the love of my life for over 25 years.</p>
+                        <p class="team-details__text">I am passionate about guiding individuals on their spiritual journeys and helping them uncover the hidden depths within themselves. My goal is to empower people to align with their true purpose, break free from limiting beliefs, and live a life filled with clarity, confidence, and connection to their higher selves.</p>
+                        <p class="team-details__text">If that resonates with you — then I’m truly glad you’re here.</p>
+                        <div class="team-details__btn">
+                            <a href="contact.html">contact me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-three">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="services-three__left">
+                    <div class="services-three__img-box" style="padding-bottom: 8px;">
+                        <div class="services-three__img" >
+                            <img <img src="{% static 'assets/images/ingrid/openfield.webp' %}" alt="Why Choose Us">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7">
+                <div class="services-three__right">
+                    <div class="section-title-three text-left">
+                        <span class="section-title-three__tagline">Is This the Right Place for You?</span>
+                        <h2 class="section-title-three__title">Take a moment to ask yourself the following questions:</h2>
+                    </div>
+                    <ul class="list-unstyled services-three__questions">
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Are you feeling stuck in certain areas of your life and unsure how to move forward?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Do you sense that there’s more to your life, but you’re unclear about what that is or how to get there?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Are you looking for clarity on your life’s purpose, career, or relationships?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Have you been carrying emotional burdens for too long and want to lighten the load?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Do you feel disconnected from your intuition and want to reconnect with your inner guidance?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Are you a business owner or entrepreneur seeking intuitive insights to align your business with your values and vision?</li>
+                        <li><span style="margin-right: 10px; font-size: 16px; color: #555;">&#8226;</span> Are you ready for real, transformative change, but don’t know where to start?</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="services-three__summary" style="padding-top: 20px;">
+                <span style="font-weight: bold; color: #000;">If you answered “yes” to any of these questions, you’re in the right place.</span>
+                Whether you’re seeking a reading, emotional healing, or guidance to align your business or personal life, I’m here to help you take the next step on your journey.
+            </p>
+        </div>
+        <div class="team-details__btn">
+            <a href="contact.html">Let's Start Your Transformation</a>
+        </div>
+    </div>
+</section>
+<script>
+window.onload = function () {
+  const modal = document.getElementById('welcomeModal');
+  const closeBtn = document.querySelector('.close');
+
+  // Show the modal when the page loads
+  setTimeout(() => {
+    modal.style.display = 'block';
+  }, 1000); // Delay the modal by 1 second
+
+  // Close the modal when the close button is clicked
+  window.closeModal = function () {
+    modal.style.display = 'none';
+  };
+
+  // Close the modal if clicked outside the modal content
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Optional: Handle form submission
+  document.getElementById('emailSignupForm').onsubmit = function (event) {
+    event.preventDefault();
+    alert('Thank you for signing up!');
+    modal.style.display = 'none';
+  };
+};
+
+
+</script>
+
+{% include 'myApp/sidebar_widget.html' %}
+{% endblock %}

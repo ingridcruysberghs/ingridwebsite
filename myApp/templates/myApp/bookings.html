@@ -1,0 +1,412 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<style>
+    .virtual-coffee {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.virtual-coffee__title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #222;
+}
+
+.virtual-coffee__image {
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.virtual-coffee__content {
+    text-align: left;
+    padding: 10px;
+}
+
+.virtual-coffee__subtitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.virtual-coffee__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.virtual-coffee__list {
+    list-style: disc;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.virtual-coffee__list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.virtual-coffee__link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+</style>
+
+<section class="about-five">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-xl-6">
+                <div class="about-five__left">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">Booking Your Session</span>
+                        <h2 class="section-title__title">Connecting Globally <br> Across Languages and Platforms</h2>
+                    </div>
+                    <p class="about-one__text-1">
+                        Over the years, I’ve had the privilege of guiding individuals from across the globe – Australia, USA, China, Germany, UK, Italy, and beyond.
+                    </p>
+                    <ul class="list-unstyled about-one__points">
+                        <li>
+                            <div class="icon" src="{% static 'assets/images/ingrid/biscuits.webp' %}" 
+                                style="background-image: url({% static 'assets/images/shapes/about-one-points-shape-1.png' %});">
+                                <span class="icon-counseling"></span>
+                            </div>
+                            <div class="content">
+                                <h4>Multilingual Consultations</h4>
+                                <p>
+                                    I connect with clients in English, Dutch, Flemish, and German through WhatsApp, Skype, or phone consultations.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon"
+                                style="background-image: url({% static 'assets/images/shapes/about-one-points-shape-2.png' %});">
+                                <span class="icon-mental-health"></span>
+                            </div>
+                            <div class="content">
+                                <h4>Global Reach</h4>
+                                <p>
+                                    Helping clients from countries like Australia, USA, China, Germany, UK, and Italy find clarity and alignment.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="col-xl-6">
+                <div class="about-five__right">
+                    <div class="about-five__img-box wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
+                        <div class="about-five__img">
+                            <img src="{% static 'assets/images/ingrid/500x543.png' %}"  alt="Session Booking">
+                        </div>
+                        <div class="about-five__img-two">
+                            <div class="about-five__img-two-box">
+                                <img src="{% static 'assets/images/resources/about-five-img-2.jpg' %}" alt="Virtual Consultation">
+                                <div class="about-five__video-link">
+                                    <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                                        <div class="about-five__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <!-- Step 1 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 order-lg-1">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps/1.png' %}" alt="Personal Reading" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+                <h2>01 Personal Reading</h2>
+                <p>Gain a condensed yet comprehensive view of what’s currently influencing your life. I focus on specific areas that matter most to you, providing detailed insights and addressing each of your questions thoughtfully, ensuring you leave with clarity and guidance.</p>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 order-lg-2">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps/2.png' %}" alt="Business Sessions" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2>02 Business Sessions</h2>
+                <p>These sessions provide intuitive guidance for making informed decisions for your company. Explore potential deals, diversification opportunities, employee issues, and areas of growth with personalized strategies.</p>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 order-lg-1">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps/3.png' %}" alt="Life Coaching" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+                <h2>03 Life Coaching</h2>
+                <p>Personalized coaching to support you through transitional phases of your life. Gain clarity, strategies, and confidence to move forward with purpose and alignment.</p>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps/4.png' %}" alt="Digital Resources" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2>04 Digital Resources</h2>
+                <p>Transformative digital workbooks designed to support personal growth, unblock barriers, and evolve into your best self. Start today and embrace lasting change and empowerment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="about-two">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-xl-6">
+                <div class="about-two__right">
+                    <div class="section-title section-title-two text-left">
+                        
+                        <h2 class="section-title__title">Business Coaching for Intuitive Entrepreneurs</h2>
+                    </div>
+                    <p class="about-two__text">Unlock your potential and elevate your business with personalized coaching tailored to your unique gifts. Together, we’ll navigate the challenges of entrepreneurship, align your vision with your intuition, and create a sustainable strategy for success.
+                    </p>
+                    <div class="team-details__btn">
+                        <a href="contact.html">Let's Elevate Your Business</a>
+                    </div>
+                    <!--                   
+                    <div class="about-two__bottom">
+                        <div class="about-two__bottom-text-box">
+                            <p>Over 12 years' experience helping individuals unlock their potential and live authentically.</p>
+                        </div>
+                        <div class="about-two__user-box">
+                            <div class="about-two__user-img">
+                                <img src="{% static 'assets/images/resources/about-two-user-img.jpg' %}" alt="">
+                            </div>
+                            <div class="about-two__user-content">
+                                <h4 class="about-two__user-name">Jasonia Tim</h4>
+                                <p class="about-two__user-sub-title">CEO, Sycho</p>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="section-title__tagline" style="font-size:40px; text-transform: uppercase; display: inline-block; padding: 0.5rem 1rem;">COACHING</span>
+        </div>
+        <!-- Coaching Plan 1 -->
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6 order-lg-1">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps.png' %}" alt="Powerful Guidance Plan" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+                <h2>1:1 Powerful Guidance Plan</h2>
+                <p><strong>Powerful Guidance Plan</strong><br>
+                Are you ready for transformative change in your life? This unique plan combines reading, healing, and coaching to align your energy and purpose. We’ll explore your energetic field, uncover your soul’s mission, and clear any blocks that may be holding you back. Through weekly or biweekly sessions, you’ll receive practical tools, deep healing, and intuitive insights to create lasting change and step into the life you’ve always dreamed of.</p>
+            </div>
+        </div>
+
+        <!-- Coaching Plan 2 -->
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6 order-lg-2">
+                <div class="services-image">
+                    <img src="{% static 'assets/images/ingrid/steps1.png' %}" alt="Lightening Your Emotional Backpack" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <h2>1:1 Lightening Your Emotional Backpack</h2>
+                <p><strong>Lightening Your Emotional Backpack</strong><br>
+                This coaching program focuses on helping you release the emotional burdens you’ve been carrying. By working through your “emotional backpack,” we’ll identify unresolved feelings, remove unnecessary weight, and teach you practical strategies for long-term emotional well-being. Whether it’s personal growth or finding clarity in relationships, this program helps you achieve balance and peace in your life.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="virtual-coffee">
+    <div class="container">
+        <!-- Title -->
+        <h2 class="virtual-coffee__title">Virtual Coffee Session: Let’s Explore Together!</h2>
+        
+        <!-- Content -->
+        <div class="row">
+            <!-- Image -->
+            <div class="col-lg-12 text-center mb-4">
+                <img <img src="{% static 'assets/images/ingrid/virtualcoffee.webp' %}" alt="Virtual Coffee Session" class="img-fluid virtual-coffee__image">
+            </div>
+            
+            <!-- Columns -->
+            <div class="col-lg-4">
+                <div class="virtual-coffee__content">
+                    <h3 class="virtual-coffee__subtitle">Create anything</h3>
+                    <p class="virtual-coffee__text">
+                        Before committing to a Life Coaching or Backpack Coaching session, let’s connect over a virtual coffee! This 20-minute free session gives us a chance to get to know each other, discuss your needs, and see if we’re a good fit for working together.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="virtual-coffee__content">
+                    <h3 class="virtual-coffee__subtitle">Why book a Virtual Coffee Session?</h3>
+                    <ul class="virtual-coffee__list">
+                        <li>Determine the next steps on your journey.</li>
+                        <li>Get to know each other and discuss your goals.</li>
+                        <li>Explore how I can help you with 1-on-1 life coaching or 1-on-1 Backpack Coaching.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="virtual-coffee__content">
+                    <h3 class="virtual-coffee__subtitle">This session is completely free</h3>
+                    <p class="virtual-coffee__text">
+                        Simply pick a time that suits you using the calendar below.
+                    </p>
+                    <a href="#" class="virtual-coffee__link">Yes, please →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="faq-one">
+    <div class="container">
+        <div class="section-title section-title-two text-center">
+            <span class="section-title__tagline">Everything You Need to Know Before Booking</span>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="faq-one__right">
+                    <div class="faq-one__faq">
+                        <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                            <!-- FAQ 1 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>How long is each session?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Sessions are available in three different lengths: 60 minutes, 90 minutes, and 120 minutes. Choose the one that best suits your needs and the depth of the guidance you seek.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 2 -->
+                            <div class="accrodion active">
+                                <div class="accrodion-title">
+                                    <h4>How do I pay for a session?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>You pay for your session afterwards. I will provide payment details after our meeting, and you can complete the transaction conveniently. You can pay via bank transfer, PayPal, or Bizum, whichever is easiest for you.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 3 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>What happens during a session?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>During your session, we’ll dive deep into your energy field. I’ll begin by tuning into your past, present, and future. If necessary, we may revisit key moments from the past, but the main focus will always be the present and the future. You’ll have plenty of time to ask questions, and I often address them intuitively before they’re even spoken!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 4 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>Can I reschedule my appointment?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>Yes, you can reschedule, but I kindly ask that you do so at least 24 hours in advance. If you need to reschedule later than that, I’ll need to charge a fee of 50% of the session price.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 5 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>In which languages do you offer sessions?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>I offer sessions in Dutch, Flemish, English, and German, allowing for flexibility and comfort in communication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 6 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>How do I book a session?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>You can book a session by contacting me via the email link or book here with your name and email address. Once I receive your request, I’ll get back to you with available dates and times. Please make sure to include where you live so we can account for any time zone differences when scheduling the session.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ 7 -->
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>What platforms do you use for sessions?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>I conduct sessions via WhatsApp, Skype, Zoom, and Google Meet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% include 'myApp/sidebar_widget.html' %}
+{% endblock %}

@@ -1,0 +1,387 @@
+{% extends 'myApp/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% load static %}
+<style>
+    .how-i-work {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.how-i-work .text-content {
+    margin: 20px 0;
+}
+
+.how-i-work h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.how-i-work p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.how-i-work .btn-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.how-i-work .image-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .how-i-work .text-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-i-work {
+        padding: 40px 0;
+    }
+
+    .how-i-work h2 {
+        font-size: 1.8rem;
+    }
+
+    .how-i-work p {
+        font-size: 0.95rem;
+    }
+}
+
+.steps-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.step-box {
+    border: 1px solid #ddd;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #fafafa;
+}
+
+.step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.step-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .step-box {
+        padding: 20px;
+    }
+
+    .step-number {
+        font-size: 1.8rem;
+    }
+
+    .step-description {
+        font-size: 0.9rem;
+    }
+}
+
+.coaching-section {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content ul {
+    list-style: disc;
+    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.content ul li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.apply-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #0056b3;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.apply-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .coaching-section .row {
+        flex-direction: column;
+    }
+
+    .content {
+        padding: 20px 10px;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content ul li {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+</style>
+
+<section class="how-i-work">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column -->
+            <div class="col-lg-4 col-md-12 order-lg-1">
+                <div class="image-box">
+                    <img src="{% static 'assets/images/ingrid/brownpants.webp' %}" alt="Portrait" class="img-fluid">
+                </div>
+            </div>
+
+            <!-- Center Column -->
+            <div class="col-lg-4 col-md-12 text-center order-lg-2">
+                <div class="text-content">
+                    <h2>How I Work:</h2>
+                    <p>
+                        As a clairvoyant and psychic spiritual life coach, I harness my intuitive abilities to guide you on your unique life path. My sessions are designed to provide transformative insights and powerful guidance tailored to your needs. Here’s how I work:
+                    </p>
+                    <a href="#" class="btn btn-link">Book your session</a>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-4 col-md-12 order-lg-3">
+                <div class="image-box">
+                    <img src="{% static 'assets/images/ingrid/laptop2.webp' %}" alt="Laptop" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="about-two">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-xl-6">
+                <div class="about-two__right">
+                    <div class="section-title section-title-two text-left">
+                        
+                        <h2 class="section-title__title">RESULTS YOU CAN EXPECT</h2>
+                    </div>
+                    <p class="about-two__text">Your life can undergo profound transformation. As your coach, I will intuitively guide you with my clairvoyant insights to help you align with your true desires and spiritual purpose. Together, we will work to release limiting beliefs and empower you to become an energetic match for the life you envision. Expect meaningful, lasting change that resonates deeply within you, illuminating your path to fulfillment and spiritual growth.
+                    </p>
+                    <div class="team-details__btn">
+                        <a href="contact.html">Let's Elevate Your Business</a>
+                    </div>
+                    <!--                   
+                    <div class="about-two__bottom">
+                        <div class="about-two__bottom-text-box">
+                            <p>Over 12 years' experience helping individuals unlock their potential and live authentically.</p>
+                        </div>
+                        <div class="about-two__user-box">
+                            <div class="about-two__user-img">
+                                <img src="{% static 'assets/images/resources/about-two-user-img.jpg' %}" alt="">
+                            </div>
+                            <div class="about-two__user-content">
+                                <h4 class="about-two__user-name">Jasonia Tim</h4>
+                                <p class="about-two__user-sub-title">CEO, Sycho</p>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="steps-section">
+    <div class="container" style="margin-bottom: 60px;">
+        <div class="row">
+            <!-- Step 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="step-box">
+                    <h2 class="step-number">01</h2>
+                    <p class="step-description">
+                        You’ll gain clarity on your true desires, free from outside influence. This understanding will spark a sense of purpose, empowering you to confidently step into your envisioned future. By trusting your intuition, you’ll make decisions aligned with your authentic self and deepest aspirations.
+                    </p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="step-box">
+                    <h2 class="step-number">02</h2>
+                    <p class="step-description">
+                        You’ll break past limitations, adopting a growth mindset that turns challenges into opportunities. With the tools provided, you’ll build lifelong resilience and adaptability, navigating life’s ups and downs with confidence, leading to lasting success and fulfillment.
+                    </p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="step-box">
+                    <h2 class="step-number">03</h2>
+                    <p class="step-description">
+                        You’ll create harmony between your inner and outer worlds, grounding your nervous system and elevating your mindset. This holistic shift will align your actions with your true self, transforming how you experience life. As you embrace your authenticity, you’ll attract opportunities and relationships that enrich your life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="testimonial-three" >
+    <div class="testimonial-three__bg" style="background-image: url({% static 'assets/images/ingrid/virtualcoffee.webp' %});"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="testimonial-three__left">
+                    <div class="section-title-three text-left">
+                        <span class="section-title-three__tagline">Testimonials</span>
+                        <h2 class="section-title-three__title">What Our Clients Say</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9">
+                <div class="testimonial-three__right">
+                    <div class="testimonial-three__carousel thm-owl__carousel owl-theme owl-carousel" data-owl-options='{
+                        "items": 1,
+                        "margin": 38,
+                        "smartSpeed": 700,
+                        "loop": true,
+                        "autoplay": 6000,
+                        "nav": true,
+                        "dots": false,
+                        "navText": ["<span class=\"icon-down\"></span>", "<span class=\"icon-right1\"></span>"],
+                        "responsive": {
+                            "0": { "items": 1 },
+                            "768": { "items": 2 },
+                            "992": { "items": 2 }
+                        }
+                    }'>
+                        <!-- Testimonial 1 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“I MET YOU IN MARBELLA FOR A READING BEFORE, IT WAS VERY ACCURATE YOUR PREDICTION FOR MY FUTURE WHICH AT THE TIME I WAS NOT SURE WOULD BECOME A REALITY, BUT IT DID! THANK YOU.”<br><strong>– Lisa</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“I AM VERY IMPRESSED WITH INGRID’S PROFESSIONALISM WHICH SHE DELIVERS IN A NATURAL WAY. HAVING BEEN A CLIENT FOR MANY YEARS I CAN HONESTLY GIVE MY HEARTFELT RECOMMENDATION.”<br><strong>– Louise</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                     
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“INGRID IS VERY WARM AND KIND. HER ADVICE AND GUIDANCE WAS EXTREMELY HELPFUL TO ME AND I WOULD HIGHLY RECOMMEND INGRID TO ANYONE WHO IS KEEN TO DISCOVER AND FOLLOW THEIR SOUL PURPOSE.”<br><strong>– Michelle</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Testimonial Carousel -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="coaching-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4">
+                <div class="image-container">
+                    <img src="{% static 'assets/images/ingrid/sittingwithlaptop.webp' %}" alt="Left Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="content">
+                    <h2>1:1 COACHING IS RIGHT FOR YOU IF...</h2>
+                    <ul>
+                        <li>You feel disconnected from your true self and crave a deeper sense of purpose and fulfillment.</li>
+                        <li>You have big dreams but struggle with self-doubt and limiting beliefs that hold you back.</li>
+                        <li>You sense that you’re on the verge of a breakthrough but need clarity and direction to get there.</li>
+                        <li>You’re ready to invest in yourself, commit to change, and take empowered action toward your goals.</li>
+                    </ul>
+                    <a href="#" class="apply-link">Apply for 1:1 Coaching</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="image-container">
+                    <img src="{% static 'assets/images/ingrid/biscuits.webp' %}" alt="Right Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% include 'myApp/sidebar_widget.html' %}
+{% endblock %}
