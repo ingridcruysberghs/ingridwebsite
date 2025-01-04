@@ -29,7 +29,7 @@
 
 .how-i-work .btn-link {
     font-size: 1rem;
-    color: #007bff;
+    color: #BC9E82;
     text-decoration: underline;
 }
 
@@ -70,8 +70,12 @@
     padding: 30px;
     text-align: center;
     border-radius: 8px;
-    margin-bottom: 30px;
+    padding-bottom: 50px;
     background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .step-number {
@@ -85,6 +89,7 @@
     font-size: 1rem;
     line-height: 1.8;
     color: #555;
+    flex-grow: 1;
 }
 
 @media (max-width: 768px) {
@@ -100,6 +105,7 @@
         font-size: 0.9rem;
     }
 }
+
 
 .coaching-section {
     padding: 60px 0;
@@ -143,7 +149,7 @@
     display: inline-block;
     margin-top: 15px;
     font-size: 1rem;
-    color: #0056b3;
+    color: #BC9E82;
     font-weight: bold;
     text-decoration: none;
 }
@@ -170,6 +176,38 @@
     }
 }
 
+.team-details__bg-img-box {
+  position: relative;
+  display: block;
+  width: 300px; /* Increased size */
+  border-radius: 50%;
+  margin: 0 auto 0;
+  z-index: 1;
+}
+
+.team-details__bg-img-box>img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-details__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  width: 240px; /* Increased size */
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.team-details__img>img {
+  border-radius: 50%;
+  width: 100%;
+}
 
 
 </style>
@@ -179,9 +217,12 @@
         <div class="row align-items-center">
             <!-- Left Column -->
             <div class="col-lg-4 col-md-12 order-lg-1">
-                <div class="image-box">
-                    <img src="{% static 'assets/images/ingrid/brownpants.webp' %}" alt="Portrait" class="img-fluid">
-                </div>
+                <div class="team-details__bg-img-box">
+                    <img src="{% static 'assets/images/ingrid/sitting.webp' %}" alt="">
+                   <div class="team-details__img">
+                       <img src="{% static 'assets/images/ingrid/sitting.webp' %}" alt="">
+                   </div>
+               </div>
             </div>
 
             <!-- Center Column -->
@@ -245,7 +286,7 @@
 
 
 <section class="steps-section">
-    <div class="container" style="margin-bottom: 60px;">
+    <div class="container" style="margin-bottom: 100px;">
         <div class="row">
             <!-- Step 1 -->
             <div class="col-lg-4 col-md-6">
@@ -279,7 +320,7 @@
 </section>
 
 
-<section class="testimonial-three" >
+<section class="testimonial-three">
     <div class="testimonial-three__bg" style="background-image: url({% static 'assets/images/ingrid/virtualcoffee.webp' %});"></div>
     <div class="container">
         <div class="row">
@@ -308,43 +349,117 @@
                             "992": { "items": 2 }
                         }
                     }'>
-                        <!-- Testimonial 1 -->
                         <div class="item">
                             <div class="testimonila-three__single">
                                 <div class="testimonila-three__single-inner">
-                                     
                                     <div class="testimonila-three__shape-1">
                                         <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
                                     </div>
-                                    <p class="testimonila-three__text-2">“I MET YOU IN MARBELLA FOR A READING BEFORE, IT WAS VERY ACCURATE YOUR PREDICTION FOR MY FUTURE WHICH AT THE TIME I WAS NOT SURE WOULD BECOME A REALITY, BUT IT DID! THANK YOU.”<br><strong>– Lisa</strong></p>
+                                    <p class="testimonila-three__text-2">“I am very impressed with Ingrid’s professionalism, which she delivers in a natural way. Having been a client for many years, I can honestly give my heartfelt recommendation.”<br><strong>– Louise</strong></p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Testimonial 2 -->
                         <div class="item">
                             <div class="testimonila-three__single">
                                 <div class="testimonila-three__single-inner">
-                                     
                                     <div class="testimonila-three__shape-1">
                                         <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
                                     </div>
-                                    <p class="testimonila-three__text-2">“I AM VERY IMPRESSED WITH INGRID’S PROFESSIONALISM WHICH SHE DELIVERS IN A NATURAL WAY. HAVING BEEN A CLIENT FOR MANY YEARS I CAN HONESTLY GIVE MY HEARTFELT RECOMMENDATION.”<br><strong>– Louise</strong></p>
+                                    <p class="testimonila-three__text-2">“Ingrid is very warm and kind. Her advice and guidance were extremely helpful to me, and I would highly recommend Ingrid to anyone who is keen to discover and follow their soul purpose.”<br><strong>– Michelle</strong></p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Testimonial 3 -->
                         <div class="item">
                             <div class="testimonila-three__single">
                                 <div class="testimonila-three__single-inner">
-                                     
                                     <div class="testimonila-three__shape-1">
                                         <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
                                     </div>
-                                    <p class="testimonila-three__text-2">“INGRID IS VERY WARM AND KIND. HER ADVICE AND GUIDANCE WAS EXTREMELY HELPFUL TO ME AND I WOULD HIGHLY RECOMMEND INGRID TO ANYONE WHO IS KEEN TO DISCOVER AND FOLLOW THEIR SOUL PURPOSE.”<br><strong>– Michelle</strong></p>
+                                    <p class="testimonila-three__text-2">“Ingrid is a blessing to anyone who is lucky enough to speak to her. She has given me clarity and guidance when I needed it most over the last few years. She has an amazing gift and has helped us individually as a family through some very challenging times. Every time I have spoken to her, I feel uplifted and have the confidence to carry on with life. Ingrid has a unique ability to guide us through the future and connect with loved ones no longer here. I wholeheartedly recommend Ingrid to anyone seeking guidance.”<br><strong>– Emma</strong></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Testimonial Carousel -->
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Ingrid is definitely one of the most professional mediums I have met in Costa del Sol. Her ability to see, feel, and express things with care and attention to her clients is remarkable. She provides clear and positive readings, even when the answers are unexpected. I highly recommend her for guidance, support, and coaching.”<br><strong>– Lena</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“We all have questions about our future and the paths we should take. Ingrid gave me the guidance I was searching for, helping me make the right choices at the right time. After my session, I felt a sense of relief, clarity, and increased happiness. Speaking with Ingrid is like hearing your inner voice channelled through her.”<br><strong>– Oscar</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Ingrid will read you like an open book. She is warm, loving, and leaves you with a strong sense of hope. After three readings with Ingrid, I can confidently say her predictions are accurate. Each session leaves me feeling uplifted, positive, and supported.”<br><strong>– Petra</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Contacté con Ingrid en un momento de mi vida en que necesitaba ayuda, y ella supo darme luz en un momento difícil. Sus predicciones y consejos son acertados y ayudan incluso mucho tiempo después. Recomiendo absolutamente sus servicios, pues aporta claridad y esperanza donde antes había dudas y oscuridad.”<br><strong>– Marina</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Dear Ingrid, You have amazing skills and talent in helping people navigate difficult life situations. You guide them through obstacles and show them the light. Thank you so much for all your help and support.”<br><strong>– Tanya</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“While stepping into the unknown, the depth and breadth of my session with Ingrid surpassed all expectations. Her wisdom and guidance gave me strength, calmness, and inspiration to move forward with positive intention.”<br><strong>– Nicole</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Uplifting, inspirational, like talking to a lifelong friend. Ingrid filled me with confidence and incredible insights.”<br><strong>– Neil</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonila-three__single">
+                                <div class="testimonila-three__single-inner">
+                                    <div class="testimonila-three__shape-1">
+                                        <img src="{% static 'assets/images/shapes/testimonial-three-shape-1.png' %}" alt="">
+                                    </div>
+                                    <p class="testimonila-three__text-2">“Ik heb onze sessie als zeer positief ervaren. Ik kreeg bevestigingen, nieuwe inzichten en bovenal een houvast voor mijn plannen. Ingrid is iemand waar ik op kan terugvallen en een persoon met bijzondere capaciteiten. Ik raad haar van harte aan.”<br><strong>– Eric</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -357,7 +472,7 @@
         <div class="row align-items-center">
             <div class="col-lg-4">
                 <div class="image-container">
-                    <img src="{% static 'assets/images/ingrid/sittingwithlaptop.webp' %}" alt="Left Image" class="img-fluid">
+                    <img src="{% static 'assets/images/ingrid/coaching/1.png' %}" alt="Left Image" class="img-fluid">
                 </div>
             </div>
             <div class="col-lg-4 text-center">
@@ -374,7 +489,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="image-container">
-                    <img src="{% static 'assets/images/ingrid/biscuits.webp' %}" alt="Right Image" class="img-fluid">
+                    <img src="{% static 'assets/images/ingrid/coaching/2.png' %}" alt="Right Image" class="img-fluid">
                 </div>
             </div>
         </div>
