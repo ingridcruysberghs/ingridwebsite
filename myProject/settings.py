@@ -16,9 +16,10 @@ SECRET_KEY = "django-insecure-%d(p#$c8r6*%obsfx@41n$!$q8-)izb3fj5l39-w9l9l41*#nh
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.up.railway.app',
     '127.0.0.1',
-    'localhost'
+    'localhost',
+    'ingridwebsite-production-cb5c.up.railway.app',
+    'ingridwebsite-production.up.railway.app'
 ]
 
 
